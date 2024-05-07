@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: public # this is the source_name
+    database: pg
+    tables:
+      - name: sensor # this is the table_name
+        config:
+          branch: prod
+          table: dalongdemoapp
+          schema: dbtv4
+      - name: sensor_data_store
+  - name: dbtv4 # this is the source_name
+    tables:
+      - name: dalong # this is the table_name
+      - name: demodalong
+      - name: dalongdemoapp

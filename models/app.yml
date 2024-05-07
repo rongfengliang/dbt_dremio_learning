@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: sensor
+    schema: public
+    database: pg
+    description: 'demo model'
+  - name: mymodel-v2
+    description: '{{doc("model_desc")}}'
+    columns:
+      - name: code
+        meta:
+          metrics:
+            total_sales:
+              type: sum
+              label: "Total sales (USD)"
+              group_label: "Sales metrics"
+              round: 2
+        tests:
+          - is_even:
+              config:
+                store_failures: true
+                where: "code > 0"
